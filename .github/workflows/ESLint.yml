@@ -1,17 +1,28 @@
-name: Lint
-on: [push]
+name: Playwright Tests
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
 jobs:
-  eslint_check:
-    name: Prepare action
+  test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.49.0-noble
+      options: --user 1001
     steps:
-      # Checkout action must run prior to eslint check
-    - name: Checkout 
-      uses: actions/checkout@v1
-    - name: Lint
-      uses: Krizzu/eslint-check-action@v1.1.0
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
       with:
-        
-        eslintFiles: "lib, scripts"
-        eslintConfig: "myConfigs/eslint.config.js",
-        eslintExt: "ts, tsx"
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm ci    
+    - name: Run Playwright tests
+      run: npx playwright test
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: playwright-report
+        path: playwright-report/ 
+        retention-days: 30

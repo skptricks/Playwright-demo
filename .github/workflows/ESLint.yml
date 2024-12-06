@@ -1,22 +1,16 @@
 name: Lint
-
-on:
-  pull_request:
-  push:
-    branches:
-      - master
-
+on: [push]
 jobs:
-  eslint:
+  eslint_check:
+    name: Prepare action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm ci # or yarn install
-      - uses: sibiraj-s/action-eslint@v3
-        with:         
-          eslint-args: '--ignore-path=.gitignore --quiet'
-          extensions: 'js,jsx,ts,tsx'
-          annotations: true
+      # Checkout action must run prior to eslint check
+    - name: Checkout 
+      uses: actions/checkout@v1
+    - name: Lint
+      uses: Krizzu/eslint-check-action@v1.1.0
+      with:        
+        eslintFiles: "lib, scripts, tests"
+        eslintConfig: "myConfigs/eslint.config.js",
+        eslintExt: "ts, tsx"

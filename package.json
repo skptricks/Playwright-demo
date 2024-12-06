@@ -16,5 +16,9 @@
     "eslint": "^9.16.0",
     "globals": "^15.13.0",
     "typescript-eslint": "^8.17.0"
+  },
+  "dependencies": {
+    "@magic/format": "^0.0.61",
+    "lint": "^0.8.19"
   }
 }

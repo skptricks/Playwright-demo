@@ -37,16 +37,19 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      fullyParallel: true,
     },
 
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
+      fullyParallel: true,
     },
 
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
+      fullyParallel: true,
     },
 
     /* Test against mobile viewports. */

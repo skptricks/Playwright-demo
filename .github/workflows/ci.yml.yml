@@ -30,10 +30,14 @@ jobs:
       - name: Install Dependencies
         id: npm-ci
         run: npm ci
-
+      
       - name: Check Format
         id: npm-format-check
-        run: npm run format:check
+        run: npm run format:check  
+
+      - name: Check npm i -g @magic/format
+        id: npm-mgic
+        run: npm i -g @magic/format
 
       - name: Lint
         id: npm-lint

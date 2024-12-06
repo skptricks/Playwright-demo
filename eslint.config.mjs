@@ -1,12 +1,23 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
+name: 'Close stale issues'
+on:
+  schedule:
+    - cron: '0 0 * * *'
 
-
-/** @type {import('eslint').Linter.Config[]} */
-export default [
-  {files: ["**/*.{js,mjs,cjs,ts}"]},
-  {languageOptions: { globals: globals.browser }},
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-];
+jobs:
+  stale:
+    name: Stale
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: 'Issue is stale and will be closed in 14 days unless there is new activity'
+          stale-pr-message: 'PR is stale and will be closed in 14 days unless there is new activity'
+          stale-issue-label: 'stale'
+          exempt-issue-labels: 'stale-exempt,kind/feature-request'
+          stale-pr-label: 'stale'
+          exempt-pr-labels: 'stale-exempt'
+          remove-stale-when-updated: 'True'
+          operations-per-run: 500
+          days-before-stale: 180
+          days-before-close: 14

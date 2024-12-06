@@ -1,27 +1,23 @@
-name: Run ESLint on Pull Requests
-
+name: 'Close stale issues'
 on:
-  - pull_request
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
-  build:
-    name: Run ESLint
+  stale:
+    name: Stale
     runs-on: ubuntu-latest
     steps:
-      
-      # Check out the repository
-      - uses: actions/checkout@v4
-
-      # Install Node.js
-      - uses: actions/setup-node@v4
+      - uses: actions/stale@v9
         with:
-          node-version: 12
-
-      # Install your dependencies
-      - run: npm ci
-
-      - name: ESLint
-        run: npx github-actions-eslint-annotator
-        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         PARTIAL_LINTING: true # default: false, only works on PRs
+       
+          stale-issue-message: 'Issue is stale and will be closed in 14 days unless there is new activity'
+          stale-pr-message: 'PR is stale and will be closed in 14 days unless there is new activity'
+          stale-issue-label: 'stale'
+          exempt-issue-labels: 'stale-exempt,kind/feature-request'
+          stale-pr-label: 'stale'
+          exempt-pr-labels: 'stale-exempt'
+          remove-stale-when-updated: 'True'
+          operations-per-run: 500
+          days-before-stale: 180
+          days-before-close: 14

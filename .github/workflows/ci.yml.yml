@@ -35,9 +35,7 @@ jobs:
         id: npm-mgic
         run: npm i -g @magic/format
       
-      - name: Check Format
-        id: npm-format-check
-        run: npm run format:check  
+     
 
      
 

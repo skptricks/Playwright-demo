@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@neovici/github-actions-eslint-annotator": "^0.4.0",
     "@playwright/test": "^1.49.0",
     "@types/node": "^22.10.1"
   }

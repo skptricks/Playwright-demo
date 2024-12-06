@@ -20,9 +20,8 @@ jobs:
       # Install your dependencies
       - run: npm ci
 
-      - uses: mrdivyansh/eslint-action@v1.0.7     
-        if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }} 
-        with:        
-          eslint-rc: .eslintrc.js
-          execute-on-files:
-            ./tests
+      - name: ESLint
+        run: npx github-actions-eslint-annotator
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         PARTIAL_LINTING: true # default: false, only works on PRs

@@ -10,8 +10,11 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@neovici/github-actions-eslint-annotator": "^0.4.0",
+    "@eslint/js": "^9.16.0",
     "@playwright/test": "^1.49.0",
-    "@types/node": "^22.10.1"
+    "@types/node": "^22.10.1",
+    "eslint": "^9.16.0",
+    "globals": "^15.13.0",
+    "typescript-eslint": "^8.17.0"
   }
 }

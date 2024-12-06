@@ -2,7 +2,9 @@
   "name": "playwright-demo",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "eslint:github-action": "eslint src/"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

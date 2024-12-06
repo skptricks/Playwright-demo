@@ -20,5 +20,9 @@ jobs:
       # Install your dependencies
       - run: npm ci
 
-      # Run ESLint
-      - uses: eslint/github-action@v0
+      - uses: mrdivyansh/eslint-action@v1.0.7     
+        if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }} 
+        with:        
+          eslint-rc: .eslintrc.js
+          execute-on-files:
+            ./tests

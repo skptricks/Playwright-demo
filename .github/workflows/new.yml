@@ -27,17 +27,14 @@ jobs:
       - name: dotnet build and publish
         working-directory: 'app'
         run: |
-          dotnet restore
-          dotnet build --configuration Release
-          dotnet publish -c Release -o './published-app'
+         echo "run dot nrt";
 
       # Publish artifact
       - name: Publish artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: published-app
-          path: './app/published-app'
-
+        
+        run: |
+         echo "run dot nrtddddddddddddddddddddddddddddd";
+         
   deploy-dev:
     runs-on: 'ubuntu-latest'
     environment: 'dev'

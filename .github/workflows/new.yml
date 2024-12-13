@@ -57,16 +57,11 @@ jobs:
     steps:
 
       # Download published artifact
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: published-app
-          path: './published-app'
+      - name: Download artifact      
+        run: |
+         echo "run dot nrtddddddddddddddddddddddddddddd" | exit 0;
 
       # Deploy to web app
       - name: Deploy to Azure WebApp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: app-cloudlumberjack-prod
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: './published-app'
+        run: |
+         echo "run dot nrtddddddddddddddddddddddddddddd" | exit 0;

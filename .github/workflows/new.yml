@@ -27,13 +27,13 @@ jobs:
       - name: dotnet build and publish
         working-directory: 'app'
         run: |
-         echo "run dot nrt";
+         echo "run dot nrt" | exit 0;
 
       # Publish artifact
       - name: Publish artifact
         
         run: |
-         echo "run dot nrtddddddddddddddddddddddddddddd";
+         echo "run dot nrtddddddddddddddddddddddddddddd" | exit 0;
          
   deploy-dev:
     runs-on: 'ubuntu-latest'

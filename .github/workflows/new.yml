@@ -42,12 +42,12 @@ jobs:
 
       # Download published artifact
       - name: Download artifact
-         run: |
+        run: |
          echo "run dot nrtddddddddddddddddddddddddddddd" | exit 0;
 
       # Deploy to web app
       - name: Deploy to Azure WebApp
-         run: |
+        run: |
          echo "run dot nrtddddddddddddddddddddddddddddd" | exit 0;
 
   deploy-prod:

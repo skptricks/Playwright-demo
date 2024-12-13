@@ -30,8 +30,12 @@
           uses: super-linter/super-linter@v7.2.0 # x-release-please-version
           env:
             # To report GitHub Actions status checks
-            GITHUB_TOKEN: ${{ secrets.TOKEN }}
+            VALIDATE_ALL_CODEBASE: true
+            VALIDATE_JAVASCRIPT_ES: true
+            VALIDATE_PYTHON_BLACK: true
+            VALIDATE_HTML: true           
             FIX_JAVASCRIPT_STANDARD : true
+            GITHUB_TOKEN: ${{ secrets.TOKEN }}
 
 
 

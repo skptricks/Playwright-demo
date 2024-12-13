@@ -33,8 +33,7 @@
             VALIDATE_ALL_CODEBASE: true
             VALIDATE_JAVASCRIPT_ES: true
             VALIDATE_PYTHON_BLACK: true
-            VALIDATE_HTML: true           
-            FIX_JAVASCRIPT_STANDARD : true
+            VALIDATE_HTML: true
             GITHUB_TOKEN: ${{ secrets.TOKEN }}
 
 

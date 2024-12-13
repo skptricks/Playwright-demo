@@ -39,9 +39,9 @@
 
 
         - name: Commit and push linting fixes 
-         # Run only on:
-         # - Pull requests
-         # - Not on the default branch
+          # Run only on:
+          # - Pull requests
+          # - Not on the default branch
           if: >
            github.event_name == 'pull_request' &&
            github.ref_name != github.event.repository.default_branch

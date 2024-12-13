@@ -24,8 +24,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       # Run dotnet build and publish
-      - name: dotnet build and publish
-        working-directory: 'app'
+      - name: dotnet build and publish        
         run: |
          echo "run dot nrt" | exit 0;
 

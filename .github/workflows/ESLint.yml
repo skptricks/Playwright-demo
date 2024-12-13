@@ -36,13 +36,16 @@
             VALIDATE_HTML: true
             GITHUB_TOKEN: ${{ secrets.TOKEN }}  
 
+    deploy_staging:
+          environment: staging
+          name: 'Deploy to staging'
+          runs-on: ubuntu-latest
 
+          steps:
+      
+          - uses: actions/checkout@v2
+            name: 'Checkout repository'  
 
-        - name: Commit and push linting fixes         
+          
         
-          uses: stefanzweifel/git-auto-commit-action@v5
-          with:
-           branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
-           commit_message: "chore: fix linting issues"
-           commit_user_name: super-linter
-           commit_user_email: super-linter@super-linter.dev    
+          
